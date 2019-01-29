@@ -12,12 +12,12 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create()
+    @recipe = Recipe.create(recipe_params)
   end
 
   private
 
-  def person_params
+  def recipe_params
     params.require(:person).permit(
       :name,
       ingredients_attributes: [
